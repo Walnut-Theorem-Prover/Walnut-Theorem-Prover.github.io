@@ -1,2 +1,2 @@
-# Walnut-CAS.github.io
-The Walnut CAS webpage.
+# Walnut-Theorem-Prover.github.io
+The Walnut Theorem Prover webpage.
