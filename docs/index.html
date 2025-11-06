@@ -1,141 +1,130 @@
-<!DOCTYPE html>
-<html>
+<HTML>
+<HEAD>
+<style>
+body{	
+    margin:100;
+	padding:100"
+	FONT-FAMILY: Helvetica,  Arial, sans-serif;
+	font-size: 1.0em;
+	line-height: 1.4em;
+		}
+h1 {
+   FONT-FAMILY: Helvetica,  Arial, sans-serif;
+   font-size: 1.5em;
+   color: navy;
+}	
 
-<head>
-  <meta charset="UTF-8">
-  <title>Walnut Automatic Theorem Prover</title>
-  <link href="css/walnut.css" rel="stylesheet">
-</head>
+title{
+ display: block;
+}	
+</style>
 
-<body>
-  <header>
-    <h1><img src="image/walnut.svg" alt="A walnut" height="35px">Walnut</h1>
-    <h2>Automatic Theorem Prover for Automatic Words</h2>
-  </header>
-  <main>
-    <section>
-      <h1> What is Walnut?</h1>
-      <p>
-        Walnut is free software, written in Java, for
-        deciding first-order statements about the non-negative
-        integers, phrased in an extension of
-        Presburger arithmetic, called Buchi arithmetic. It
-        can be used to provide rigorous proofs or disproofs of
-        hundreds of assertions in combinatorics
-        on words, number theory, and other areas of discrete
-        mathematics. It can handle a wide variety of problems, and has been
-        used to disprove false claims in the literature, as well as solve
-        open problems.
-      </p>
-      <h1> Where can I learn more about Walnut? </h1>
-      <p>
-        You can buy a <a href="walnut-book.html">book</a>, or
-        watch a <a href="walnut-videos.html">video</a> about Walnut,
-        or look at some <a href="walnut-examples.txt">examples</a> of
-        how it can be used. There are also some
-        <a href="walnut-exercises.html">exercises</a> you can try once
-        you have mastered the basics of Walnut.
-      </p>
-      <h1> Where can I download Walnut? </h1>
-      <p>
-        The current version of Walnut is 6.2, and can be downloaded
-        for free at <a href="https://github.com/firetto/Walnut">https://github.com/firetto/Walnut</a>.
-      </p>
-      <h1> Where is the documentation about Walnut? </h1>
-      <p>
-        Currently there is no one single document with all of Walnut's features.
-        The base document, about the first version of Walnut (aka Walnut 1),
-        is <a href="https://arxiv.org/abs/1603.06017v2">this arxiv preprint</a> by Hamoon Mousavi, originally written in
-        2016 and updated in 2021. Since then,
-        many new features have been added to Walnut:
-      <ul>
-        <li><a href="walnut6-doc.pdf">Walnut 6</a> (the current version; improved speed and memory usage, added basic
-          automaton operations)</li>
-        <li><a href="walnut-5-doc.txt">Walnut 5</a> (support for transducers)</li>
-        <li><a href="Walnut4-Documentation.txt">Walnut 4</a> (support for queries over <b>Z</b> instead of <b>N</b>)
-        </li>
-        <li><a href="Walnut3-NewCommands.pdf">Walnut 3</a> (provides regular expressions for k-tuples of strings;
-          combine DFA's into a DFAO; convert uniform morphism to a DFAO, etc.)</li>
-        <li><a href="Walnut-2.0.pdf">Walnut 2</a> (provides support for the Ostrowski numeration systems)</li>
-      </ul>
-      </p>
-      <p>
-        The <a href="walnut-book.html">Walnut book</a> also contains literally dozens and dozens of applications of
-        Walnut to various problems, with code you can
-        just paste in verbatim and run.
-      </p>
-      <h1> How do I install Walnut? </h1>
-      <p>
-        See <a href="walnut-installation.html">this page</a>.
-      </p>
-      <h1> I don't want to install it, can I just try it out in a web interface?</h1>
-      <p>
-        Yes! Thanks to
-        <a href="https://www.univ-orleans.fr/lifo/Members/Nicolas.Ollinger/">Nicolas Ollinger</a>, you can go to <a
-          href="https://mybinder.org/v2/gh/nopid/jupywalnut/main">this URL</a>. It takes about 15-30 seconds to load.
-        Once it loads, click the button that says "New &#9660;" and select "Walnut".
-        You will now see a green rectangle. You can now type in Walnut commands
-        and click "&#9654; Run" to execute them. Try, for example
-      </p>
-      <p>
-        <tt> def tm_has_overlap "Ei,n n>=1 & At (t<=n)=> T[i+t]=T[i+n+t]": </tt>
-      </p>
-      <p>
-        which is Walnut's way of writing the first-order logic assertion
-      </p>
-      <p>
-        &exist; <i>i, n</i> &nbsp; <i>n</i> &ge; 1 and &forall; <i>t</i> (<i>t</i>
-        &le; <i>n</i>) &rArr; <b>t</b><sub><i>i</i>+<i>t</i></sub> =
-        <b>t</b><sub><i>i</i>+<i>n</i>+<i>t</i></sub> .
-      </p>
-      <p>
-        This expression/Walnut command asserts that the <a
-          href="https://en.wikipedia.org/wiki/Thue–Morse_sequence">Thue-Morse sequence</a> <b>t</b> = 011010011001
-        &mldr;
-        has an overlap. (An <i>overlap</i> is a block of the form <i>axaxa</i>, where
-        <i>a</i> is a single letter, and <i>x</i> is a (possibly empty) word.)
-      </p>
-      <p>
-        Now Walnut returns FALSE, so this constitutes
-        a rigorous proof that <b>t</b> has no overlaps.
-      </p>
-      <h1> Where are older versions of Walnut?</h1>
-      <ul>
-        <li> <a href="https://github.com/hamousavi/Walnut">Walnut 1</a></li>
-        <li> <a href="https://github.com/aseemrb/walnut">Walnut 2</a></li>
-        <li> <a href="https://github.com/DistortedLight/Walnut">Walnut 3</a></li>
-        <li> <a href="https://github.com/jono1202/Walnut">Walnut 4</a></li>
-        <li> <a href="https://github.com/firetto/Walnut/tree/walnut5">Walnut 5</a></li>
-      </ul>
-      <h1> Where can I read papers about using Walnut to solve problems?</h1>
-      <p>
-        <a href="walnut-papers.html">This page</a> has a list of over 100 papers,
-        books, and theses that have used Walnut in some way to prove results
-        in number theory, combinatorics on words, and other fields of discrete
-        mathematics.
-      </p>
-      <h1> Who are the developers of Walnut? </h1>
-      <p>
-        The principal architect of Walnut 1 was
-        <a href="https://hamoonmousavi.com">Hamoon Mousavi</a>.
-        <a href="https://aseemrb.me">Aseem Baranwal</a>
-        added features to Walnut 2.
-        Laindon C. Burnett added features to Walnut 3.
-        <a href="https://www.math.ubc.ca/user/3795">Kai Hsiang Yang</a>
-        added features to Walnut 4. <a href="https://www.bu.edu/cs/profiles/anatoly-zavyalov/">Anatoly Zavyalov</a>
-        added
-        features to Walnut 5. Anatoly Zavyalov added features
-        to Walnut 6, and <a href="https://www.linkedin.com/in/johnwnicol/">John Nicol</a> rewrote large portions of the
-        code
-        to significantly improve speed and memory usage.
-        Walnut 7 development is currently underway by
-        John Nicol and Markus Frohme.
-        Jeffrey Shallit contributed ideas to the development of Walnut versions
-        1 through 6, but no actual programming.
-      </p>
-    </section>
-  </main>
-  <footer></footer>
-</body>
+<TITLE> Walnut Software </TITLE>
 
-</html>
+</HEAD>
+
+<BODY>
+
+<H1 style = "margin-bottom: 40; font-size: 2em; color: DarkGreen;"> WALNUT SOFTWARE</H1>
+
+<H1> What is Walnut?</H1>
+
+Walnut is free software, written in Java, for
+deciding first-order statements about the non-negative
+integers, phrased in an extension of
+Presburger arithmetic, called Buchi arithmetic.  It
+can be used to provide rigorous proofs or disproofs of 
+hundreds of assertions in combinatorics
+on words, number theory, and other areas of discrete
+mathematics. It can handle a wide variety of problems, and has been
+used to disprove false claims in the literature, as well as solve
+open problems.
+
+<H1> Where can I download Walnut? </H1>
+
+The latest version of Walnut can be downloaded for free at <a href="https://github.com/Walnut-Theorem-Prover">https://github.com/Walnut-Theorem-Prover</a>.
+
+<H1> Where is the documentation about Walnut? </H1>
+
+Please see the <a href="https://github.com/Walnut-Theorem-Prover/Walnut/wiki">Walnut wiki</a> for the most up-to-date documentation about Walnut!
+<br>
+<br>
+To learn even more about Walnut, see Jeff's <a href="https://cs.uwaterloo.ca/~shallit/walnut.html">Walnut page</a>.
+There are links to his book, videos, and more Walnut examples and exercises there once you have mastered the basics of Walnut.
+
+<H1> I don't want to install it, can I just try it out in a web 
+browser?</H1>
+
+Yes!  Thanks to 
+<a href="https://www.univ-orleans.fr/lifo/Members/Nicolas.Ollinger/">Nicolas Ollinger</a>, you can go to <a href="https://mybinder.org/v2/gh/nopid/jupywalnut/main?urlpath=/lab/tree/notebooks/">this URL</a>.  It takes about 15-30 seconds to load.
+Once it loads, click the button that says "New &#9660;" and select "Walnut".
+You will now see a blue rectangle.  You can now type in Walnut commands
+and click on the small black right-pointing
+triangle &#9656; to run them.  Try, for example
+<P>
+<tt> eval tm_has_overlap "Ei,n n>=1 & Aj (j<=n) => T[i+j]=T[i+n+j]": </tt>
+</P>
+which is Walnut's way of writing the first-order logic assertion
+<P>
+&exist; <i>i, n</i> &nbsp; <i>n</i> &ge; 1 and &forall; <i>j</i> (<i>j</i>
+&le; <i>n</i>) &rArr; <b>t</b><sub><i>i</i>+<i>j</i></sub> =
+<b>t</b><sub><i>i</i>+<i>n</i>+<i>j</i></sub> .
+<P>
+This expression/Walnut command asserts that the <a href="https://en.wikipedia.org/wiki/Thue–Morse_sequence">Thue-Morse sequence</a> <b>t</b> = 011010011001 &mldr;
+has an overlap.  (An <i>overlap</i> is a block of the form <i>axaxa</i>, where
+<i>a</i> is a single letter, and <i>x</i> is a (possibly empty) word.) 
+<P>
+
+Now Walnut returns FALSE, so this constitutes
+a rigorous proof that <b>t</b> has no overlaps.
+<P>
+
+To see an automaton, use the command
+<BR>
+%showme <i>name</i>
+<BR> where <i>name</i> is replaced
+by the name of the automaton you want to see.
+<P>
+
+<H1> How can I report bugs or complain about issues?</H1>
+
+Go to <a href="https://github.com/Walnut-Theorem-Prover/Walnut/issues">this web page</a>.  You might have to register for github.
+<P>
+
+<H1> Where are older versions of Walnut? </H1>
+
+<UL>
+<LI> <a href="https://github.com/hamousavi/Walnut">Walnut 1</a>
+<LI> <a href="https://github.com/aseemrb/walnut">Walnut 2</a>
+<LI> <a href="https://github.com/DistortedLight/Walnut">Walnut 3</a>
+<LI> <a href="https://github.com/jono1202/Walnut">Walnut 4</a>
+<LI> <a href="https://github.com/firetto/Walnut/tree/walnut5">Walnut 5</a>
+<LI> <a href="https://github.com/Walnut-Theorem-Prover/Walnut/releases/tag/v6.2.0">Walnut 6.2</a>
+</UL>
+
+<H1> Where can I read papers about using Walnut to solve problems?</H1>
+
+<A href="https://cs.uwaterloo.ca/~shallit/walnut-papers.html">This page</a> has a list of over 100 papers,
+books, and theses that have used Walnut in some way to prove results 
+in number theory, combinatorics on words, and other fields of discrete
+mathematics.
+
+<H1> Who are the developers of Walnut? </H1>
+
+The principal architect of Walnut 1 was 
+<a href="https://hamoonmousavi.com">Hamoon Mousavi</a>.  
+<a href="https://aseemrb.me">Aseem Baranwal</a>
+added features to Walnut 2.
+Laindon C. Burnett added features to Walnut 3.
+<a href="https://www.math.ubc.ca/user/3795">Kai Hsiang Yang</a>
+added features to Walnut 4.  <a href="https://www.bu.edu/cs/profiles/anatoly-zavyalov/">Anatoly Zavyalov</a> added
+features to Walnut 5.  Anatoly Zavyalov added features
+to Walnut 6, and <a href="https://www.linkedin.com/in/johnwnicol/">John Nicol</a> rewrote large portions of the code
+to significantly improve speed and memory usage.
+Walnut 7 development was by 
+John Nicol.
+<a href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</a> contributed ideas to the development of Walnut versions
+1 through 7, but no actual programming.
+</BODY>
+</HTML>
+
